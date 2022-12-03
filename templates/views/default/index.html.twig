@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block meta_refresh %}
+{#<meta http-equiv="refresh" content="60"> //TODO #}
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container">
+
+        <div style="margin-top: 32px;padding: 32px">&nbsp;</div>
+
+        <h3 class="content-title-text">pagio</h3>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .imgmain {
+            margin-top: 64px;
+            display: block;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
