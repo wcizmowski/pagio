@@ -1,38 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block meta_refresh %}
-{#<meta http-equiv="refresh" content="60"> //TODO #}
+    {# <meta http-equiv="refresh" content="60"> //TODO #}
 {% endblock %}
 
 {% block content %}
-<div class="wrapper">
-    <div class="container center">
+    <div class="wrapper">
+        <div class="container center">
 
-        <div style="margin-top: 8px;">&nbsp;</div>
+            <div style="margin-top: 8px;">&nbsp;</div>
 
-        <img src="{{ asset('build/assets/images/technology-6701504_640.jpg') }}" class="logo-img">
+            <img src="{{ asset('build/assets/images/technology-6701504_640.jpg') }}" class="logo-img center">
 
-        <form action="" method="get">
-            <div class="input-group mb-1" style="width: 30%;position: fixed;float: left">
-                {% if phrase is defined %}
-                    <input type="text" name="phrase" class="form-control search-input" placeholder="{{ phrase }}"
-                           aria-label="Recipient's username" aria-describedby="button-addon2"
-                    >
-                {% else %}
-                    <input type="text" name="phrase" class="form-control search-input" placeholder="type URL here"
-                           aria-label="Recipient's username" aria-describedby="button-addon2"
-                    >
-                {% endif %}
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i> Analyze
-                    </button>
-                </div>
+            <div class="center">
+                <form action="" method="get">
+                    <div class="input-group mb-1" style="width: 30%;position: fixed;float: left">
+                        {% if phrase is defined %}
+                            <input type="text" name="phrase" class="form-control search-input"
+                                   placeholder="{{ phrase }}"
+                                   aria-label="Recipient's username" aria-describedby="button-addon2"
+                            >
+                        {% else %}
+                            <input type="text" name="phrase" class="form-control search-input"
+                                   placeholder="type URL here"
+                                   aria-label="Recipient's username" aria-describedby="button-addon2"
+                            >
+                        {% endif %}
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search"></i> Analyze
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
 
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block stylesheets %}
