@@ -1,84 +1,14 @@
 <a id="logo" href="{{ path('homepage') }}">
-    <img src="{{ asset('build/assets/images/logo.png') }}" class="logo-img" width="64">
-    <span style="color: #ffffff">
-{#        {{ t_getenv('APP_NAME') }}#}
+    <img src="build/assets/images/logo.png" class="logo-img" width="64">
+    <span style="color: #ffffff;margin-left: 32px">
+        pagio
     </span>
-{#    {% if t_getenv('APP_SERVER') == 'local' %}#}
-{#        <span style="color: #ec5b68">#}
-{#            [ <i class="fas fa-server"></i> server: local ]#}
-{#        </span>#}
-{#    {% elseif t_getenv('APP_SERVER') == 'stage' %}#}
-{#        <span style="color: #ec5b68">#}
-{#            [ <i class="fas fa-server"></i> server: stage /test environment/ ]#}
-{#        </span>#}
-{#    {% endif %}#}
 </a>
 
-{#<form action="{{ path('search') }}" method="get">#}
-{#    <div class="input-group mb-1" style="width: 30%;position: fixed;float: left">#}
-{#        {% if phrase is defined %}#}
-{#            <input type="text" name="phrase" class="form-control search-input" placeholder="{{ phrase }}"#}
-{#                   aria-label="Recipient's username" aria-describedby="button-addon2"#}
-{#            >#}
-{#        {% else %}#}
-{#            <input type="text" name="phrase" class="form-control search-input" placeholder="szukana fraza"#}
-{#                   aria-label="Recipient's username" aria-describedby="button-addon2"#}
-{#            >#}
-{#        {% endif %}#}
-{#        <div class="input-group-append">#}
-{#            <button class="btn btn-primary" type="submit">#}
-{#                <i class="fas fa-search"></i> Szukaj#}
-{#            </button>#}
-{#        </div>#}
-{#    </div>#}
-{#</form>#}
-
 <div class="links" style="margin-left: 0px">
-{#    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}#}
-{#        <span style="color: #c8e1fc; font-size: 12px">#}
-{#            [ <i class="fa fa-user"></i> {{ app.user.username }}#}
-{#            {% if is_granted('ROLE_ADMIN') %}#}
-{#                <span style="color: #e89898">admin</span>#}
-{#            {% endif %}#}
-{#            ]#}
-{#        </span>#}
-{#        <span style="margin-right: 16px"></span>#}
-{#        <a href="{{ path('panel') }}">panel</a>#}
-{#        /#}
-{#        <a href="{{ path('fos_user_profile_show') }}">profil</a>#}
-{#        /#}
-{#        <a href="{{ path('fos_user_security_logout') }}">wyloguj</a>#}
-{#    {% else %}#}
-{#        <a href="{{ path('fos_user_registration_register') }}">rejestruj</a>#}
-{#        /#}
-{#        <span style="color: #c8e1fc; font-size: 12px">#}
-{#            [ <i class="fa fa-user"></i> <a href="{{ path('fos_user_security_login') }}">zaloguj</a> ]#}
-{#        </span>#}
-{#    {% endif %}#}
 </div>
 
 <div class="links" style="margin-top: -32px;float: right;position: absolute;right: 16px">
-{#    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and is_granted('ROLE_ADMIN') %}#}
-{#        <a href="{{ path('tree') }}"><span class="asub"><b>DRZEWA</b></span></a>#}
-{#        /#}
-{#        <a href="{{ path('list-categories') }}"><span class="asub">kategorie</span></a>#}
-{#        /#}
-{#        <a href="{{ path('list-subcategories') }}"><span class="asub">podkategorie</span></a>#}
-{#        /#}
-{#        <a href="{{ path('list-partners') }}"><span class="asub">partnerzy</span></a>#}
-{#        /#}
-{#        <a href="{{ path('list-promotions') }}"><span class="asub">promocje</span></a>#}
-{#        /#}
-{#        <a href="{{ path('list-users') }}"><span class="asub">użytkownicy</span></a>#}
-{#        /#}
-{#        <a href="{{ path('list-codes') }}"><span class="asub">kody</span></a>#}
-{#        /#}
-{#        <a href="{{ path('list-transactions') }}"><span class="asub">transakcje</span></a>#}
-{#        /#}
-{#        <a href="{{ path('stat') }}"><span class="asub">statystyki</span></a>#}
-{#        /#}
-{#        <a href="{{ path('stat-daily') }}"><span class="asub">statystyki dzienne</span></a>#}
-{#    {% endif %}#}
 </div>
 
 {% block stylesheets %}
@@ -97,13 +27,6 @@
         }
         .links a {
             color: #9fcdff;
-        }
-        .asub {
-            color: antiquewhite; !important;
-            font-size: 14px;
-        }
-        .asub hover {
-            font-weight: bold;
         }
     </style>
 {% endblock %}

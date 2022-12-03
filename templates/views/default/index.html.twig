@@ -6,11 +6,31 @@
 
 {% block content %}
 <div class="wrapper">
-    <div class="container">
+    <div class="container center">
 
-        <div style="margin-top: 32px;padding: 32px">&nbsp;</div>
+        <div style="margin-top: 8px;">&nbsp;</div>
 
-        <h3 class="content-title-text">pagio</h3>
+        <img src="{{ asset('build/assets/images/technology-6701504_640.jpg') }}" class="logo-img">
+
+        <form action="" method="get">
+            <div class="input-group mb-1" style="width: 30%;position: fixed;float: left">
+                {% if phrase is defined %}
+                    <input type="text" name="phrase" class="form-control search-input" placeholder="{{ phrase }}"
+                           aria-label="Recipient's username" aria-describedby="button-addon2"
+                    >
+                {% else %}
+                    <input type="text" name="phrase" class="form-control search-input" placeholder="type URL here"
+                           aria-label="Recipient's username" aria-describedby="button-addon2"
+                    >
+                {% endif %}
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i> Analyze
+                    </button>
+                </div>
+            </div>
+        </form>
+
     </div>
 </div>
 {% endblock %}
