@@ -1,6 +1,6 @@
 <a id="logo" href="{{ path('homepage') }}">
-    <img src="build/assets/images/logo.png" class="logo-img" width="64">
-    <span style="color: #ffffff;margin-left: 32px">
+    <img src="build/assets/images/logo.png" class="logo-img" width="64" alt="logo">
+    <span class="logo-text">
         pagio
     </span>
 </a>
@@ -8,11 +8,19 @@
 <div class="links" style="margin-left: 0px">
 </div>
 
-<div class="links" style="margin-top: -32px;float: right;position: absolute;right: 16px">
+<div class="links">
+    <a href="">about</a>
 </div>
 
 {% block stylesheets %}
     <style>
+        a {
+            text-decoration: none;
+        }
+        .logo-text {
+            color: #ffffff;
+            margin-left: 32px;
+        }
         .logo-img {
             color: #162969;
             font-size: 40px;
@@ -23,7 +31,10 @@
         }
         .links {
             float: right;
-            margin-top: 16px;
+            margin-top: -32px;
+            position: absolute;
+            right: 16px;
+            color: #5eb5e0;"
         }
         .links a {
             color: #9fcdff;
