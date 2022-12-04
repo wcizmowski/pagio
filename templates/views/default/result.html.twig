@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block meta_refresh %}
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="container center">
+
+            <div style="margin-top: 8px;">&nbsp;</div>
+
+            Rezultat:
+            <br>
+            URL: {{ url }}
+            <br><br>
+            {{ content }}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
