@@ -30,11 +30,13 @@ class AnalyzeController extends AbstractController
      */
     public function analyzeAction(Request $request): Response
     {
+        $url = $this->setCorrectURL($request->get('url'));
+
         $errorMessage = '';
-        $content = $this->getURLContent($request->get('url'), $errorMessage);
+        $content = $this->getURLContent($url, $errorMessage);
 
         return $this->render('views/default/result.html.twig', [
-            'url' => $request->get('url'),
+            'url' => $url,
             'content' => $content,
         ]);
     }
@@ -49,7 +51,8 @@ class AnalyzeController extends AbstractController
      */
     public function analyzeAPIAction(Request $request): JsonResponse
     {
-        if (empty($request->get('url'))) {
+        $url = $request->get('url');
+        if (empty($url)) {
             return new JsonResponse(
                 [
                     'result' => 'empty url',
@@ -57,17 +60,30 @@ class AnalyzeController extends AbstractController
             );
         }
 
+        $url = $this->setCorrectURL($request->get('url'));
+
         $errorMessage = '';
-        $content = $this->getURLContent($request->get('url'), $errorMessage);
+        $content = $this->getURLContent($url, $errorMessage);
 
         return new JsonResponse(
             [
-                'url' => $request->get('url'),
+                'url' => $url,
                 'errorMessage' => $errorMessage,
                 'content' =>  $content,
             ], Response::HTTP_NOT_FOUND
         );
 
+    }
+
+    public function setCorrectURL(string $url): string
+    {
+        $result = $url;
+
+        if (!str_starts_with($url, 'http')) {
+            $result = 'https://' . $url;
+        }
+
+        return $result;
     }
 
     public function getURLContent(string $url, string $errorMessage): ?string
