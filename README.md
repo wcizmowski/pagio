@@ -21,7 +21,7 @@ along with an element of type api endpoint, which retrieves the content of the i
 html page and looks for an html element with a specific css class in it or informs about the lack of them
 The end point result returns a json array with the following structure:
 <br>
-```json
+```
   {
     'url',
     'http_reposne_code',
