@@ -28,7 +28,5 @@ class DefaultController extends AbstractController
      */
     public function indexAction(): void
     {
-        $test = true;
-        $test = false;
     }
 }

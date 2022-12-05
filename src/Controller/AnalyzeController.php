@@ -16,9 +16,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnalyzeController extends AbstractController
 {
 
-    public const STYLE_BEGIN = '003Cstyle';
+    public const STYLE_BEGIN = '<style>'; //003Cstyle
     public const STYLE_CLASS_BEGIN = '.';
-    public const STYLE_END = '\u003C\/style';
+    public const STYLE_CLASS_END = ' ';
+    public const STYLE_END = '</style>';
 
     public function __construct(
     )
@@ -40,9 +41,10 @@ class AnalyzeController extends AbstractController
         $errorMessage = '';
         $content = $this->getURLContent($url, $errorMessage);
 
+        $result = $this->parsePage($content);
         return $this->render('views/default/result.html.twig', [
             'url' => $url,
-            'content' => $this->parsePage($content),
+            'content' => $result,
         ]);
     }
 
@@ -69,6 +71,8 @@ class AnalyzeController extends AbstractController
 
         $errorMessage = '';
         $content = $this->getURLContent($url, $errorMessage);
+
+//        var_dump($content);
 
         return new JsonResponse(
             [
@@ -105,8 +109,28 @@ class AnalyzeController extends AbstractController
         return $content;
     }
 
-    public function parsePage(string $content): ?array
+    public function parsePage(string $content): ?string
     {
+        if (!str_contains($content, self::STYLE_BEGIN)) {
+            return '';
+        };
 
+        $result = [];
+        $style = '';
+
+        $beginStyle = strpos($content, self::STYLE_BEGIN);
+        $search = true;
+        while ($search) {
+            $endStyle = strpos($content, self::STYLE_END, $beginStyle + strlen(self::STYLE_BEGIN) );
+
+            $style .= substr($content, $beginStyle,$endStyle - $beginStyle);
+
+            $result = $style;
+
+            $beginStyle = $endStyle;
+            $search = strpos($content,self::STYLE_BEGIN, $beginStyle + strlen(self::STYLE_BEGIN));
+        }
+
+        return $result;
     }
 }
