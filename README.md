@@ -114,4 +114,13 @@ docker-compose up httpd php mysql redis
 > **Documentation:**
 > [Start only some container](https://devilbox.readthedocs.io/en/latest/getting-started/start-the-devilbox.html#start-some-container)
 
+Usage
+--
+On the main page of the project we have 2 options:
+1. Form with URL field for analysis
+   Here we enter the URL and click the Analyze button, the results in JSON format will appear on the page.
+2. The tab with the API address - classic endpoint.
+   You can call endpoint /analyzeAPI?url=urltoanalyze directly
 
+For preview purposes, the project has been posted online at:
+https://pagio.iwebi.pl
