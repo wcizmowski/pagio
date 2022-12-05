@@ -15,6 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AnalyzeController extends AbstractController
 {
+
+    public const STYLE_BEGIN = '003Cstyle';
+    public const STYLE_CLASS_BEGIN = '.';
+    public const STYLE_END = '\u003C\/style';
+
     public function __construct(
     )
     {
@@ -37,7 +42,7 @@ class AnalyzeController extends AbstractController
 
         return $this->render('views/default/result.html.twig', [
             'url' => $url,
-            'content' => $content,
+            'content' => $this->parsePage($content),
         ]);
     }
 
@@ -69,7 +74,7 @@ class AnalyzeController extends AbstractController
             [
                 'url' => $url,
                 'errorMessage' => $errorMessage,
-                'content' =>  $content,
+                'elements' =>  $this->parsePage($content),
             ], Response::HTTP_NOT_FOUND
         );
 
@@ -98,5 +103,10 @@ class AnalyzeController extends AbstractController
         }
 
         return $content;
+    }
+
+    public function parsePage(string $content): ?array
+    {
+
     }
 }
