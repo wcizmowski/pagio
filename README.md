@@ -32,7 +32,20 @@ The end point result returns a json array with the following structure:
 ```
 Instalation & Start-up
 --
-Generally, two scenarios are possible:
+
+The project is on GitHub at:<br>
+https://github.com/wcizmowski/pagio
+<br>To download the project, run the command:<br>
+```
+git clone git@github.com:wcizmowski/pagio.git
+```
+Once downloaded, run the following command in the project directory:
+```
+composer install
+```
+These steps are enough to initialize correctly.
+
+To run, Generally, two scenarios are possible:
 1. Using the so-called Symfony Local Web Server
 2. Using docker /preferred/.
 
