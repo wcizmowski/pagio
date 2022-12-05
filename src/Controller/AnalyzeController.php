@@ -115,7 +115,7 @@ class AnalyzeController extends AbstractController
             return '';
         };
 
-        $result = [];
+        $result = '';
         $style = '';
 
         $beginStyle = strpos($content, self::STYLE_BEGIN);
@@ -125,12 +125,29 @@ class AnalyzeController extends AbstractController
 
             $style .= substr($content, $beginStyle,$endStyle - $beginStyle);
 
-            $result = $style;
-
             $beginStyle = $endStyle;
             $search = strpos($content,self::STYLE_BEGIN, $beginStyle + strlen(self::STYLE_BEGIN));
         }
 
-        return $result;
+        $classElements = '';
+        $beginClass = strpos($style, self::STYLE_CLASS_BEGIN);
+        $search = true;
+        while ($search) {
+            $endClass =
+                strpos(
+                    $style,
+                    self::STYLE_CLASS_END,
+                    $beginClass + strlen(self::STYLE_CLASS_BEGIN)
+                );
+
+            $classElements .= substr($style, $beginClass, $endClass - $beginClass) . ' ';
+
+            $beginClass = $endClass;
+            $search = strpos(
+                $style,
+                self::STYLE_CLASS_BEGIN, $beginClass + strlen(self::STYLE_CLASS_BEGIN));
+        }
+
+        return $classElements;
     }
 }
