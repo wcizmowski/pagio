@@ -125,8 +125,8 @@ class AnalyzeController extends AbstractController
 
             $style .= substr($content, $beginStyle,$endStyle - $beginStyle);
 
-            $beginStyle = $endStyle;
-            $search = strpos($content,self::STYLE_BEGIN, $beginStyle + strlen(self::STYLE_BEGIN));
+            //$beginStyle = $endStyle;
+            $search = $beginStyle = strpos($content,self::STYLE_BEGIN, $beginStyle + strlen(self::STYLE_BEGIN));
         }
 
         $classElements = '';
@@ -142,7 +142,7 @@ class AnalyzeController extends AbstractController
 
             $classElements .= substr($style, $beginClass, $endClass - $beginClass) . ' ';
 
-            $beginClass = $endClass;
+            //$beginClass = $endClass;
             $search = $beginClass = strpos(
                 $style,
                 self::STYLE_CLASS_BEGIN, $beginClass + strlen(self::STYLE_CLASS_BEGIN));
