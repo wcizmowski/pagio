@@ -143,11 +143,12 @@ class AnalyzeController extends AbstractController
             $classElements .= substr($style, $beginClass, $endClass - $beginClass) . ' ';
 
             $beginClass = $endClass;
-            $search = strpos(
+            $search = $beginClass = strpos(
                 $style,
                 self::STYLE_CLASS_BEGIN, $beginClass + strlen(self::STYLE_CLASS_BEGIN));
         }
 
         return $classElements;
     }
+
 }
