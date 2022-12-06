@@ -138,3 +138,18 @@ On the main page of the project we have 2 options:
 
 For preview purposes, the project has been posted online at:
 https://pagio.iwebi.pl
+
+Unit tests
+--
+There are 3 sample tests implemented in the application.<br>
+According to the convention used for PHPUnit. The tests are located in the<br> 
+/tests directory <br>
+and - in the /src/Controller subdirectory
+
+launching tests:<br>
+```
+php bin/phpunit
+```
+
+more about unit testing in Symfony:
+https://symfony.com/doc/current/testing.html#unit-tests
