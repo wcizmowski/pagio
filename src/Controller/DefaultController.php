@@ -29,4 +29,16 @@ class DefaultController extends AbstractController
     public function indexAction(): void
     {
     }
+
+    /**
+     * About page
+     *
+     * @Route("/about", name="about", methods={"GET"})
+     *
+     * * @Template("views/default/about.html.twig")
+     * @return void
+     */
+    public function aboutAction(): void
+    {
+    }
 }

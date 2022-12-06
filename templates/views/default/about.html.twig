@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block meta_refresh %}
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="container center">
+
+            <div style="margin-top: 8px;">&nbsp;</div>
+
+            <img src="{{ asset('build/assets/images/technology-6701504_640.jpg') }}"
+                 class="logo-img center" width="300"
+            >
+
+            <div class="center">
+
+                <div class="card text-center">
+                    pagio application
+                    --
+                    https://pagio.iwebi.pl
+
+                    <i>pagio = page input/output ;-)</i>
+                    <br>
+                    pagio app is based on Symfony 6.1<br>
+                    PHP version 8.1
+                    <br><br>
+                    Features: web page analyse /CSS classes/, API enpoint version /additional feature/
+                    <br>
+                    The application is a recruitment task for the provider group company.
+                    An application based on the Symfony framework was created
+                    along with an element of type api endpoint, which retrieves the content of the indicated
+                    html page and looks for an html element with a specific css class in it or informs about the lack of them
+                    The end point result returns a json array with the following structure:
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .imgmain {
+            margin-top: 64px;
+            display: block;
+        }
+
+        .tab-text-info {
+            padding-top: 16px;
+            padding-left: 16px;
+            padding-bottom: 16px;
+            color: lightslategrey;
+            text-align: left;
+            font-size: small;
+        }
+
+        .form-pos {
+            margin-top: 20px;
+            alignment: center;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+

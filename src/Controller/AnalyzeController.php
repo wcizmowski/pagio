@@ -72,8 +72,6 @@ class AnalyzeController extends AbstractController
         $errorMessage = '';
         $content = $this->getURLContent($url, $errorMessage);
 
-//        var_dump($content);
-
         return new JsonResponse(
             [
                 'url' => $url,
@@ -125,7 +123,6 @@ class AnalyzeController extends AbstractController
 
             $style .= substr($content, $beginStyle,$endStyle - $beginStyle);
 
-            //$beginStyle = $endStyle;
             $search = $beginStyle = strpos($content,self::STYLE_BEGIN, $beginStyle + strlen(self::STYLE_BEGIN));
         }
 
@@ -142,7 +139,6 @@ class AnalyzeController extends AbstractController
 
             $classElements .= substr($style, $beginClass, $endClass - $beginClass) . ' ';
 
-            //$beginClass = $endClass;
             $search = $beginClass = strpos(
                 $style,
                 self::STYLE_CLASS_BEGIN, $beginClass + strlen(self::STYLE_CLASS_BEGIN));
